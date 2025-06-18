@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <a routerLink="/" class="brand">SmartBiz</a>
+
+    <ng-container *ngIf="authService.getRole() === 'admin'">
+      <a routerLink="/admin/add-customer">Add Customer</a>
+      <a routerLink="/admin/view-customers">View Customers</a>
+      <a routerLink="/admin/add-product">Add Product</a>
+      <a routerLink="/admin/view-products">View Products</a>
+      <a routerLink="/admin/make-sale">Make Sale</a>
+      <a routerLink="/admin/reports">Reports</a>
+    </ng-container>
+
+    <ng-container *ngIf="authService.getRole() === 'employee'">
+      <a routerLink="/employee/view-customers">View Customers</a>
+      <a routerLink="/employee/view-products">View Products</a>
+      <a routerLink="/employee/make-sale">Make Sale</a>
+    </ng-container>
+  </div>
+
+  <div class="nav-right">
+    <button (click)="logout()">Logout</button>
+  </div>
+</nav>

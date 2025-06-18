@@ -1,0 +1,47 @@
+<div class="product-list-container">
+  <h2>🗃 Product List</h2>
+
+  <div class="table-wrapper">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product Name</th>
+          <th>Price (₹)</th>
+          <th>Stock</th>
+          <th *ngIf="authService.getRole() === 'admin'">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{ p.id }}</td>
+
+          <!-- Name -->
+          <td *ngIf="!editMap[p.id]">{{ p.name }}</td>
+          <td *ngIf="editMap[p.id]">
+            <input [(ngModel)]="p.name" placeholder="Product Name" />
+          </td>
+
+          <!-- Price -->
+          <td *ngIf="!editMap[p.id]">{{ p.price }}</td>
+          <td *ngIf="editMap[p.id]">
+            <input type="number" [(ngModel)]="p.price" placeholder="Price" />
+          </td>
+
+          <!-- Stock -->
+          <td *ngIf="!editMap[p.id]">{{ p.stock }}</td>
+          <td *ngIf="editMap[p.id]">
+            <input type="number" [(ngModel)]="p.stock" placeholder="Stock" />
+          </td>
+
+          <!-- Admin Actions -->
+          <td *ngIf="authService.getRole() === 'admin'">
+            <button *ngIf="!editMap[p.id]" (click)="editMap[p.id] = true">✏️ Edit</button>
+            <button *ngIf="editMap[p.id]" (click)="updateProduct(p)">💾 Save</button>
+            <button (click)="deleteProduct(p.id)">🗑 Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

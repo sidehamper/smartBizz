@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.employee-dashboard {
+  padding: 3rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f6fc;
+  min-height: 100vh;
+}
+
+/* Welcome Message */
+.intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.intro h1 {
+  font-size: 2.3rem;
+  color: #3f51b5;
+  margin-bottom: 0.5rem;
+}
+
+.intro p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.card-block {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card-block:hover {
+  transform: translateY(-4px);
+}
+
+.card-block .icon {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #3f51b5;
+}
+
+.card-block h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: #3f51b5;
+}
+
+.card-block p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}

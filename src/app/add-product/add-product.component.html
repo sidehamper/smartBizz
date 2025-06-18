@@ -1,0 +1,19 @@
+<div class="add-product-container">
+  <div class="form-card">
+    <div class="form-header">
+      <div class="icon">📦</div>
+      <h2>Add New Product</h2>
+      <p>Enter product details to add it to your inventory.</p>
+    </div>
+
+    <div class="form-body">
+      <input [(ngModel)]="name" placeholder="Product Name" />
+      <input [(ngModel)]="price" type="number" placeholder="Price (₹)" />
+      <input [(ngModel)]="stock" type="number" placeholder="Stock Quantity" />
+
+      <button (click)="addProduct()">Add Product</button>
+
+      <p class="success" *ngIf="success">{{ success }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="add-customer-container">
+  <div class="form-card">
+    <div class="form-header">
+      <div class="icon">👤</div>
+      <h2>Add New Customer</h2>
+      <p>Fill out the details to register a new customer.</p>
+    </div>
+
+    <div class="form-body">
+      <input [(ngModel)]="name" placeholder="Full Name" />
+      <input [(ngModel)]="mobile" placeholder="Mobile Number" />
+      <input [(ngModel)]="address" placeholder="Address" />
+      <button (click)="addCustomer()">Add Customer</button>
+      <p class="success" *ngIf="success">{{ success }}</p>
+    </div>
+  </div>
+</div>

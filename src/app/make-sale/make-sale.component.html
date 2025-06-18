@@ -1,0 +1,18 @@
+<div class="make-sale-container">
+  <div class="form-card">
+    <div class="form-header">
+      <div class="icon">💳</div>
+      <h2>Record New Sale</h2>
+      <p>Enter sale details below to add a transaction.</p>
+    </div>
+
+    <div class="form-body">
+      <input [(ngModel)]="customer" placeholder="Customer Name" />
+      <input [(ngModel)]="amount" placeholder="Amount (₹)" type="number" />
+
+      <button (click)="makeSale()">Record Sale</button>
+
+      <p class="success" *ngIf="message">{{ message }}</p>
+    </div>
+  </div>
+</div>

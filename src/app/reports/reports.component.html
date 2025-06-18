@@ -1,0 +1,27 @@
+<div class="reports-container">
+  <div class="report-header">
+    <h2>📊 Transaction Reports</h2>
+    <p>Total Transactions: <strong>{{ transactions.length }}</strong></p>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer</th>
+          <th>Amount (₹)</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of transactions">
+          <td>{{ t.id }}</td>
+          <td>{{ t.customer }}</td>
+          <td>{{ t.amount }}</td>
+          <td>{{ t.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

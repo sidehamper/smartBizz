@@ -1,0 +1,43 @@
+<div class="customer-list-container">
+  <h2>📋 Customer List</h2>
+
+  <div class="table-wrapper">
+    <table class="customer-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th *ngIf="authService.getRole() === 'admin'">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of customers">
+          <td>{{ c.id }}</td>
+
+          <td *ngIf="!editMap[c.id]">{{ c.name }}</td>
+          <td *ngIf="editMap[c.id]">
+            <input [(ngModel)]="c.name" placeholder="Name" />
+          </td>
+
+          <td *ngIf="!editMap[c.id]">{{ c.mobile }}</td>
+          <td *ngIf="editMap[c.id]">
+            <input [(ngModel)]="c.mobile" placeholder="Mobile" />
+          </td>
+
+          <td *ngIf="!editMap[c.id]">{{ c.address }}</td>
+          <td *ngIf="editMap[c.id]">
+            <input [(ngModel)]="c.address" placeholder="Address" />
+          </td>
+
+          <td *ngIf="authService.getRole() === 'admin'">
+            <button *ngIf="!editMap[c.id]" (click)="editMap[c.id] = true">✏️ Edit</button>
+            <button *ngIf="editMap[c.id]" (click)="updateCustomer(c)">💾 Save</button>
+            <button (click)="deleteCustomer(c.id)">🗑 Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
